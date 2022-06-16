@@ -79,5 +79,21 @@ So the diagonal form of the covariance matrix is $D^2/N$. The sample covariance:
     S = \frac1N X^TX = \frac1N VD^2V^T = V \frac{D^2}{N} V^T
 \end{equation}
 
+\newpage
+\section{Image compression}
+
+Considering an image as a matrix $A$ ($H$-by-$W$), the SVD gives a possibility to compress the image by considering the most relevant contributions, i.e. those that have the biggest singular values.
+
+\begin{equation}
+    A = \sum_{i=1}^{r} \sigma_i \cdot u_i \cdot v^T_i \quad \to \quad \hat{A} = \sum_{i=1}^{c} \sigma_i \cdot u_i \cdot v^T_i
+\end{equation}
+
+where $c << r$ is the number of components to consider in the new sum. The following figure shows an example of how it performs.
+
+\begin{figure}[ht]
+ \centering
+  \includegraphics[width=300pt]{images/img_compression.png}
+ \caption{Image compression with SVD. Color channels are treated as independent matrices. Here the rank of the (let's say the red) matrix is $r\approx 656$. Taking the first 10 components gives a pretty nice result.}
+\end{figure}
 
 \end{document}
